@@ -1,0 +1,47 @@
+{
+  "name": "@_linked/irlcg",
+  "version": "0.0.0-development",
+  "description": "Portable, standards-aligned ontology and base Shapes for in-real-life participation mechanics.",
+  "private": true,
+  "type": "module",
+  "linkedPackage": true,
+  "sideEffects": [
+    "./src/package.ts",
+    "./src/ontologies/irlcg.ts",
+    "./src/shapes/index.ts"
+  ],
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./ontology": {
+      "types": "./src/ontologies/irlcg.ts",
+      "default": "./src/ontologies/irlcg.ts"
+    },
+    "./shapes": {
+      "types": "./src/shapes/index.ts",
+      "default": "./src/shapes/index.ts"
+    },
+    "./package": {
+      "types": "./src/package.ts",
+      "default": "./src/package.ts"
+    }
+  },
+  "scripts": {
+    "test": "vitest run --config vitest.config.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@_linked/core": "2.14.4",
+    "@_linked/schema": "1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "typescript": "^5.9.2",
+    "vitest": "^2.1.9"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

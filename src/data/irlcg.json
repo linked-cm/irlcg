@@ -1,0 +1,142 @@
+{
+  "@context": {
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "irlcg": "https://linked.cm/ont/irlcg/",
+    "oldirlcg": "http://lincd.org/ont/irlcg/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "irlcg:",
+      "@type": "owl:Ontology",
+      "dc:title": "IRLCG portable participation ontology",
+      "dcterms:description": "Portable real-world participation mechanics shared by Linked applications. Application scoring, policy, user interfaces, and domain-specific records are intentionally excluded.",
+      "owl:versionInfo": "0.1.0"
+    },
+    {
+      "@id": "irlcg:Team",
+      "@type": "owl:Class",
+      "rdfs:label": "Team",
+      "rdfs:comment": "A group of people coordinating real-world participation.",
+      "rdfs:subClassOf": { "@id": "schema:Organization" },
+      "rdfs:isDefinedBy": { "@id": "irlcg:" }
+    },
+    {
+      "@id": "irlcg:Action",
+      "@type": "owl:Class",
+      "rdfs:label": "Participation action",
+      "rdfs:comment": "An action definition or activity that can be referenced by a real-world participation experience.",
+      "rdfs:subClassOf": { "@id": "schema:Action" },
+      "rdfs:isDefinedBy": { "@id": "irlcg:" }
+    },
+    {
+      "@id": "irlcg:ActionPlan",
+      "@type": "owl:Class",
+      "rdfs:label": "Action plan",
+      "rdfs:comment": "A participant's plan or intention to carry out a participation action.",
+      "rdfs:subClassOf": { "@id": "schema:PlanAction" },
+      "rdfs:isDefinedBy": { "@id": "irlcg:" }
+    },
+    {
+      "@id": "irlcg:Event",
+      "@type": "owl:Class",
+      "rdfs:label": "Participation event",
+      "rdfs:comment": "A scheduled real-world or hybrid occasion in which participation occurs.",
+      "rdfs:subClassOf": { "@id": "schema:Event" },
+      "rdfs:isDefinedBy": { "@id": "irlcg:" }
+    },
+    {
+      "@id": "irlcg:Mission",
+      "@type": "owl:Class",
+      "rdfs:label": "Mission",
+      "rdfs:comment": "A reusable goal or commitment whose completion criteria are evaluated from linked participation facts.",
+      "rdfs:isDefinedBy": { "@id": "irlcg:" }
+    },
+    {
+      "@id": "irlcg:Opportunity",
+      "@type": "owl:Class",
+      "rdfs:label": "Participation opportunity",
+      "rdfs:comment": "A public call for people to participate, optionally before a specific event exists.",
+      "rdfs:isDefinedBy": { "@id": "irlcg:" }
+    },
+    {
+      "@id": "irlcg:RSVP",
+      "@type": "owl:Class",
+      "rdfs:label": "Participation commitment",
+      "rdfs:comment": "A person's response or commitment to participate in an event or mission.",
+      "rdfs:subClassOf": { "@id": "schema:JoinAction" },
+      "rdfs:isDefinedBy": { "@id": "irlcg:" }
+    },
+    {
+      "@id": "irlcg:CheckIn",
+      "@type": "owl:Class",
+      "rdfs:label": "Check in",
+      "rdfs:comment": "A raw observation that a person arrived for participation; it does not by itself credit time or impact.",
+      "rdfs:subClassOf": { "@id": "schema:CheckInAction" },
+      "rdfs:isDefinedBy": { "@id": "irlcg:" }
+    },
+    {
+      "@id": "irlcg:CheckOut",
+      "@type": "owl:Class",
+      "rdfs:label": "Check out",
+      "rdfs:comment": "A raw observation that a person departed from participation; it does not by itself credit time or impact.",
+      "rdfs:subClassOf": { "@id": "schema:CheckOutAction" },
+      "rdfs:isDefinedBy": { "@id": "irlcg:" }
+    },
+    {
+      "@id": "irlcg:Invite",
+      "@type": "owl:Class",
+      "rdfs:label": "Participation invitation",
+      "rdfs:comment": "An invitation to participate. Recognition or attribution derived from it is governed elsewhere.",
+      "rdfs:subClassOf": { "@id": "schema:InviteAction" },
+      "rdfs:isDefinedBy": { "@id": "irlcg:" }
+    },
+    {
+      "@id": "irlcg:Alliance",
+      "@type": "owl:Class",
+      "rdfs:label": "Alliance",
+      "rdfs:comment": "A consensual reified relationship between people participating as allies.",
+      "rdfs:isDefinedBy": { "@id": "irlcg:" }
+    },
+    {
+      "@id": "irlcg:Mentorship",
+      "@type": "owl:Class",
+      "rdfs:label": "Mentorship",
+      "rdfs:comment": "A consensual directional relationship in which one participant mentors another.",
+      "rdfs:isDefinedBy": { "@id": "irlcg:" }
+    },
+    {
+      "@id": "oldirlcg:Team",
+      "@type": "owl:Class",
+      "owl:deprecated": { "@value": true, "@type": "xsd:boolean" },
+      "rdfs:subClassOf": { "@id": "irlcg:Team" },
+      "rdfs:comment": "Historical Peace Game application profile. Migrate instance types to irlcg:Team; no bidirectional equivalence is asserted."
+    },
+    {
+      "@id": "oldirlcg:Action",
+      "@type": "owl:Class",
+      "owl:deprecated": { "@value": true, "@type": "xsd:boolean" },
+      "rdfs:subClassOf": { "@id": "irlcg:Action" },
+      "rdfs:comment": "Historical Peace Game action profile. Migrate only after validating its action-option and scoring semantics."
+    },
+    {
+      "@id": "oldirlcg:ActionPlan",
+      "@type": "owl:Class",
+      "owl:deprecated": { "@value": true, "@type": "xsd:boolean" },
+      "rdfs:subClassOf": { "@id": "irlcg:ActionPlan" },
+      "rdfs:comment": "Historical Peace Game guided-plan profile."
+    },
+    {
+      "@id": "oldirlcg:Event",
+      "@type": "owl:Class",
+      "owl:deprecated": { "@value": true, "@type": "xsd:boolean" },
+      "rdfs:subClassOf": { "@id": "irlcg:Event" },
+      "rdfs:comment": "Historical Peace Game event profile. Peace Game-specific logo, score, and mode fields remain in its application package."
+    }
+  ]
+}
