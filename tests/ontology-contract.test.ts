@@ -1,4 +1,4 @@
-import ontology from '../src/data/irlcg.json';
+import ontology from '../src/data/irlcg.json' with { type: 'json' };
 import {
   ontologyBaseUri,
   portableClasses,
