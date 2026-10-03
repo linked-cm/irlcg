@@ -2,6 +2,7 @@
   "name": "@linked.cm/irlcg",
   "version": "0.1.0",
   "description": "Portable, standards-aligned ontology and base Shapes for in-real-life participation mechanics.",
+  "license": "MIT",
   "type": "module",
   "packageManager": "npm@11.20.0",
   "linkedPackage": true,
@@ -14,7 +15,8 @@
   },
   "files": [
     "lib",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "sideEffects": [
     "./lib/esm/package.js",
