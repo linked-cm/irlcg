@@ -1,6 +1,6 @@
 {
   "name": "@linked.cm/irlcg",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Portable, standards-aligned ontology and base Shapes for in-real-life participation mechanics.",
   "license": "MIT",
   "type": "module",
