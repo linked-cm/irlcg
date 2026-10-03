@@ -59,6 +59,8 @@
     "@changesets/changelog-github": "^1.0.0",
     "@changesets/cli": "^3.0.0",
     "@types/node": "^20.12.7",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
     "typescript": "^5.9.2",
     "vitest": "^2.1.9"
   },
