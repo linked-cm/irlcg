@@ -33,7 +33,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@_linked/core": "2.22.2",
+    "@_linked/core": "2.25.0",
     "@_linked/schema": "1.1.4"
   },
   "devDependencies": {
