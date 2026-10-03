@@ -1,6 +1,6 @@
-# `@_linked/irlcg`
+# `@linked.cm/irlcg`
 
-`@_linked/irlcg` is the small, reusable ontology package for portable
+`@linked.cm/irlcg` is the small, reusable ontology package for portable
 in-real-life participation mechanics.
 
 It is not a migration of the historical `lincd-irlcg` application package.

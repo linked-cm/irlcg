@@ -1,7 +1,5 @@
 import { Prefix } from '@_linked/core/utils/Prefix';
 import { createNameSpace } from '@_linked/core/utils/NameSpace';
-import { linkedOntology } from '../package';
-import * as _this from './irlcg';
 
 export const ontologyBaseUri = 'https://linked.cm/ont/irlcg/' as const;
 export const legacyOntologyBaseUri = 'http://lincd.org/ont/irlcg/' as const;
@@ -48,4 +46,3 @@ export const loadData = () =>
     (data) => data.default,
   );
 
-linkedOntology(_this, ns, 'irlcg', loadData, dataFile);

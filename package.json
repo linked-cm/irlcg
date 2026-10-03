@@ -1,42 +1,63 @@
 {
-  "name": "@_linked/irlcg",
-  "version": "0.0.0-development",
+  "name": "@linked.cm/irlcg",
+  "version": "0.1.0",
   "description": "Portable, standards-aligned ontology and base Shapes for in-real-life participation mechanics.",
-  "private": true,
   "type": "module",
+  "packageManager": "npm@11.20.0",
   "linkedPackage": true,
+  "main": "lib/esm/index.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/esm/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linked-cm/irlcg.git"
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
   "sideEffects": [
-    "./src/package.ts",
-    "./src/ontologies/irlcg.ts",
-    "./src/shapes/index.ts"
+    "./lib/esm/package.js",
+    "./lib/esm/ontology.js",
+    "./lib/esm/shapes.js",
+    "./lib/esm/ontologies/irlcg.register.js",
+    "./lib/esm/shapes/*"
   ],
   "exports": {
     ".": {
-      "types": "./src/index.ts",
-      "default": "./src/index.ts"
+      "types": "./lib/esm/index.d.ts",
+      "import": "./lib/esm/index.js"
     },
     "./ontology": {
-      "types": "./src/ontologies/irlcg.ts",
-      "default": "./src/ontologies/irlcg.ts"
+      "types": "./lib/esm/ontology.d.ts",
+      "import": "./lib/esm/ontology.js"
     },
     "./shapes": {
-      "types": "./src/shapes/index.ts",
-      "default": "./src/shapes/index.ts"
+      "types": "./lib/esm/shapes.d.ts",
+      "import": "./lib/esm/shapes.js"
+    },
+    "./shapes/index": {
+      "types": "./lib/esm/shapes/index.d.ts",
+      "import": "./lib/esm/shapes/index.js"
     },
     "./package": {
-      "types": "./src/package.ts",
-      "default": "./src/package.ts"
+      "types": "./lib/esm/package.d.ts",
+      "import": "./lib/esm/package.js"
     }
   },
   "scripts": {
-    "test": "vitest run --config vitest.config.ts",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "build": "npm exec linked build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --config vitest.config.ts"
   },
   "dependencies": {
-    "@_linked/core": "2.25.0",
-    "@_linked/schema": "1.1.4"
+    "@_linked/core": "^2.25.0",
+    "@_linked/schema": "^1.1.4"
   },
   "devDependencies": {
+    "@_linked/cli": "1.39.0",
+    "@changesets/changelog-github": "^1.0.0",
+    "@changesets/cli": "^3.0.0",
     "@types/node": "^20.12.7",
     "typescript": "^5.9.2",
     "vitest": "^2.1.9"

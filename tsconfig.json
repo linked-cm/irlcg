@@ -1,14 +1,18 @@
 {
-  "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "target": "ES2022",
+    "sourceMap": true,
     "declaration": true,
-    "declarationMap": true,
+    "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "noEmit": true,
-    "rootDir": ".",
-    "types": ["node", "vitest/globals"]
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["ES2022", "DOM"],
+    "types": ["node", "vitest/globals"],
+    "skipLibCheck": true,
+    "strict": true
   },
-  "files": [],
-  "include": ["src/**/*.ts", "tests/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*.ts", "tests/**/*.ts"]
 }
