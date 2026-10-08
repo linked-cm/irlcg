@@ -1,0 +1,41 @@
+.Root {
+  margin: 15px 0;
+  position: relative;
+}
+
+.select {
+  display: flex;
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  margin: 2px 0;
+  padding: 0 5px;
+  width: 100%;
+  height: 36px;
+
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  &:focus {
+    border-color: var(--secondary-color) !important;
+    outline: 0;
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.arrow {
+  position: absolute;
+  right: 10px; /* Adjust position as needed */
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* Allows */
+  svg {
+    fill: hsl(0, 0%, 80%);
+  }
+}

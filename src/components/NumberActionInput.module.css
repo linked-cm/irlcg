@@ -1,0 +1,97 @@
+.NumberActionInput {
+  margin-top: 20px;
+
+  > * {
+    margin-bottom: 0.5rem;
+  }
+
+  button {
+    margin: 0 auto;
+  }
+  input {
+    width: 45px;
+  }
+  .ActionTemplate {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    font-size: 18px;
+  }
+  .centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.TextField,
+.TextField:hover,
+.TextField:focus {
+  display: flex;
+  border: 1px solid var(--secondary-color);
+  background-color: var(--page-color);
+  border-radius: 5px;
+  margin: 2px 0;
+  padding: 0 5px;
+  /*width: 20%;*/
+  height: 30px;
+}
+
+.limitHint {
+  color: var(--secondary-color);
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.4;
+  margin: -15px 0 5px 55px;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  width: 450px;
+  height: 300px;
+  gap: 10px;
+  @media (max-width: 512px) {
+    width: 90vw;
+  }
+
+  img,
+  video {
+    width: 100px;
+    height: auto;
+  }
+  p {
+    text-align: center;
+  }
+}
+
+.ActionScore {
+  margin: 8px 0;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  p {
+    display: inline;
+    margin-top: 0 !important;
+  }
+
+  .TextField,
+  .TextField:hover,
+  .TextField:focus {
+    display: flex;
+    border: 1px solid var(--secondary-color);
+    background-color: var(--page-color);
+    border-radius: 5px;
+    margin: 2px 0;
+    padding: 0 5px;
+    width: 45px !important;
+    height: 30px;
+    font-size: 18px;
+  }
+}

@@ -53,8 +53,24 @@
     "test": "vitest run --config vitest.config.ts"
   },
   "dependencies": {
+    "@_linked/auth": "^1.2.4",
     "@_linked/core": "^2.25.0",
-    "@_linked/schema": "^1.1.4"
+    "@_linked/input": "~1.0",
+    "@_linked/mui-base": "~1.0",
+    "@_linked/react": "^1.1.0",
+    "@_linked/schema": "^1.1.4",
+    "@_linked/server-utils": "~1.0",
+    "@_linked/sioc": "1.x",
+    "@_linked/xsd": "~1.0",
+    "@capacitor/camera": "^7.0.0",
+    "@capacitor/core": "^7.0.0",
+    "@linked.cm/profile": "0.1.0",
+    "@mui/base": "5.0.0-beta.29",
+    "@tolgee/react": "^5.16.2",
+    "classnames": "^2.5.1",
+    "formidable": "^3.5.4",
+    "react-confetti": "^6.4.0",
+    "react-select": "^5.8.0"
   },
   "devDependencies": {
     "@_linked/cli": "1.39.0",

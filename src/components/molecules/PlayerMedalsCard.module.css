@@ -1,0 +1,37 @@
+.PlayerMedalsCard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+
+  .CardHeader {
+    display: flex;
+    align-items: center;
+    height: 59px;
+    background-color: var(--secondary-color);
+    gap: 10px;
+
+    .avatarPersonal {
+      width: 74px;
+      object-fit: contain;
+      border-radius: 0px;
+      height: 100%;
+    }
+
+    h4 {
+      color: white;
+    }
+  }
+
+  .CardContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    height: 100px;
+    gap: 10px;
+    padding: 15px 10px 10px 10px;
+    box-sizing: border-box;
+  }
+}

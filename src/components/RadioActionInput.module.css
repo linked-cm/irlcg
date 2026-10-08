@@ -1,0 +1,87 @@
+/* checkbox wrapper*/
+.wrapper {
+  display: block;
+  margin-top: 20px;
+}
+
+/* checkbox item*/
+.item {
+  display: block;
+  margin-bottom: 15px;
+
+  /* checkbox active*/
+  &.isChecked {
+    .label {
+      &:before {
+        content: '●';
+        height: 20px;
+        padding-top: 0px;
+        line-height: 18px;
+      }
+    }
+  }
+
+  /* checkbox disable*/
+  &.isDisabled {
+    .label {
+      &:before {
+        opacity: 0.5 !important;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+/* checked inactive*/
+.label {
+  display: flex;
+  align-items: center;
+  &:before {
+    content: '';
+    display: inline-block;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    color: var(--secondary-color);
+    outline: 1px solid currentcolor;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+    height: 14px;
+    width: 20px;
+    padding-top: 5px;
+    flex: 0 0 20px;
+  }
+}
+
+/* input tag*/
+/* hide input tag and use label::before to show checkbox*/
+.checkbox {
+  display: none;
+}
+
+.center {
+  margin: auto 50%;
+  transform: translateX(-50%);
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  width: auto;
+  height: 300px;
+  gap: 10px;
+
+  img,
+  video {
+    width: 100px;
+    height: auto;
+  }
+  p {
+    text-align: center;
+  }
+}

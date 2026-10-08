@@ -1,0 +1,65 @@
+.ShowMeeting {
+  display: block;
+  /*NextMeeting Section*/
+  .NextMeeting {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    .Header {
+      display: flex;
+      background-color: white;
+
+      .Title {
+        padding: 10px 10px;
+        box-sizing: border-box;
+      }
+    }
+
+    .FormContainer {
+      margin: 20px;
+      button {
+        margin-top: 20px;
+        width: 100%;
+      }
+      .FormMeeting {
+        display: flex;
+        margin-bottom: 10px;
+        gap: 10px;
+        flex-direction: column;
+        label {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .Content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 30px;
+
+      .TopicName {
+        display: flex;
+        label {
+          color: white;
+          font-size: 14px;
+        }
+      }
+
+      .DateTime {
+        display: flex;
+        width: 50%;
+      }
+
+      .MapInfo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+}

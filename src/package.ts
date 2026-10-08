@@ -1,4 +1,5 @@
 import { linkedPackage } from '@_linked/core/utils/Package';
+import { createLinkedComponentFn } from '@_linked/react/utils/LinkedComponent';
 
 export const irlcgPackageName = '@_linked/irlcg' as const;
 export const irlcgPackageBaseUri = 'https://linked.cm/' as const;
@@ -18,4 +19,10 @@ export const {
   registerPackageModule,
 } = registration;
 
+const linkedComponent = createLinkedComponentFn(
+  registerPackageExport,
+  () => {},
+);
+
 export const packageName = registration.packageName;
+export { linkedComponent };

@@ -1,0 +1,34 @@
+.PlayerScoreCard {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2 {
+      font-size: x-large;
+    }
+  }
+
+  .image {
+    width: 70px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  @media (max-width: 480px) {
+    .image {
+      width: 70px;
+      height: auto;
+    }
+  }
+  @media (min-width: 481px) and (max-width: 980px) {
+    .image {
+      width: 60px;
+      height: auto;
+    }
+  }
+}

@@ -1,0 +1,218 @@
+.MainCard {
+  display: flex;
+  width: 420px;
+  height: 180px;
+  border-radius: 8px;
+  background-color: white;
+  overflow: hidden;
+  box-sizing: border-box;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition-duration: 400ms;
+  margin: 8px;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(-1px);
+    transition-duration: 400ms;
+
+    .Card {
+      .HCardContent {
+        .HCardButton {
+          background-color: var(--secondary-color, #00a6cb);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 370px) {
+    width: 100%;
+    height: 105px;
+  }
+
+  &.withFooter {
+    min-height: 175px;
+    flex-direction: column;
+  }
+
+  .Card {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .CardImage {
+      width: 35%;
+
+      > img {
+        max-width: 100%;
+        /*min-height: 100%;*/
+        height: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        /*object-position: 0 -45px;*/
+        display: block;
+      }
+    }
+
+    @media (min-width: 361px) and (max-width: 450px) {
+      /*.CardImage > img {*/
+      /*  object-position: 0 -25px;*/
+      /*}*/
+    }
+
+    @media only screen and (max-width: 360px) {
+      /*.CardImage > img {*/
+      /*  object-position: 50%;*/
+      /*}*/
+    }
+
+    .HCardContent {
+      display: flex;
+      justify-content: space-between;
+      width: calc(100% - 35%);
+      /*min-height: 130px;*/
+
+      .HCardDescription {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 8px 10px;
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+
+        & > p {
+          text-transform: none;
+        }
+
+        &.withDescription {
+          justify-content: normal;
+          gap: 10px;
+        }
+
+        .IndicatorIcon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+
+          img {
+            /* width: 24px;*/
+
+            &:nth-of-type(1) {
+              width: 20px;
+            }
+
+            &:nth-of-type(2) {
+              width: 38px;
+            }
+
+            &:nth-of-type(3) {
+              width: 24px;
+            }
+          }
+        }
+      }
+
+      .HCardButton {
+        /* width: 20%;*/
+        cursor: pointer;
+        width: 40px;
+        background-color: var(--main-color, #032265);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 0;
+        box-sizing: border-box;
+        border: none;
+
+        img {
+          width: 40px;
+        }
+
+        p {
+          color: white;
+          font-size: 9px;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 450px) {
+      .HCardDescription {
+        h3 {
+          font-size: 20px;
+          line-height: normal;
+        }
+
+        p {
+          font-size: small;
+        }
+      }
+    }
+  }
+}
+
+.BottomSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  /* width: 100%;*/
+
+  .Complete {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary-color, #00a6cb);
+
+    p {
+      text-transform: uppercase;
+      font-size: 10px;
+      color: white;
+    }
+  }
+
+  .Completed {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    .StatusSection {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      background-color: var(--main-color, #032265);
+      padding: 0 10px;
+      gap: 5px;
+      box-sizing: border-box;
+
+      p {
+        font-size: 16px;
+        color: white;
+      }
+    }
+
+    .EditSection {
+      width: 12%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      background-color: var(--dark-purple);
+
+      p {
+        text-transform: uppercase;
+        font-size: 10px;
+        color: white;
+      }
+    }
+  }
+}

@@ -1,0 +1,124 @@
+.Card {
+  width: 400px;
+  height: 300px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition-duration: 400ms;
+
+  @media (max-width: 552px) {
+    width: 100%;
+  }
+
+  .CardImage {
+    width: 100%;
+    height: 50%;
+    display: block;
+    border-radius: 8px 8px 0 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: var(--main-color, #032265) 1.5px solid;
+  }
+
+  .CardContent {
+    display: flex;
+    height: 50%;
+
+    h2 {
+      text-transform: uppercase;
+      font-size: 15px;
+    }
+
+    h4 {
+      font-size: 26px;
+    }
+
+    p {
+      padding: 5px 0;
+    }
+
+    .CardDescription {
+      padding: 10px;
+      width: 88%;
+    }
+
+    .CardButton {
+      width: 12%;
+      background-color: var(--main-color, #032265);
+      border-radius: 0 0 8px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(-1px);
+    transition-duration: 400ms;
+
+    .CardImage {
+      border-bottom: var(--secondary-color, #00a6cb) 1.5px solid;
+    }
+
+    .CardButton {
+      background-color: var(--secondary-color, #00a6cb);
+    }
+  }
+}
+
+/* .peace {*/
+/*   width: 100%;*/
+/*   height: 300px;*/
+/*   border-radius: 8px;*/
+/*   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+/*   border: 2px solid transparent;*/
+
+/*   img {*/
+/*     width: 100%;*/
+/*     height: 50%;*/
+/*     display: block;*/
+/*     border-radius: 8px 8px 0 0;*/
+/*   }*/
+
+/*   .CardContent {*/
+/*     display: flex;*/
+/*     height: 50%;*/
+/*     background-color: #ffffff;*/
+/*     border-radius: 0 0 8px 8px;*/
+
+/*     h2 {*/
+/*       text-transform: uppercase;*/
+/*       font-size: 1rem;*/
+/*     }*/
+
+/*     h4 {*/
+/*       font-size: 1.625rem;*/
+/*     }*/
+
+/*     p {*/
+/*       padding: 5px 0;*/
+/*     }*/
+
+/*     .CardDescription {*/
+/*       padding: 10px;*/
+/*       width: 88%;*/
+/*     }*/
+
+/*     .CardButton {*/
+/*       width: 12%;*/
+/*       background-color: var(--main-color);*/
+/*       border-radius: 0 0 8px 0;*/
+/*       display: flex;*/
+/*       align-items: center;*/
+/*       justify-content: center;*/
+/*       border: none;*/
+/*       &:hover {*/
+/*         background-color: var(--secondary-color);*/
+/*       }*/
+/*     }*/
+/*   }*/
+/* }*/

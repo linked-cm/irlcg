@@ -1,0 +1,41 @@
+/*Households section*/
+.TeamMedalOverview {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-color: var(--main-color);
+
+  .PlayerMedalsCard {
+    cursor: pointer;
+  }
+  .Header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px 0;
+    background-color: var(--main-color);
+
+    .Title {
+      padding: 10px 10px;
+      box-sizing: border-box;
+      color: white;
+    }
+  }
+
+  .Content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px;
+    gap: 1.2rem;
+  }
+}
+.container2 {
+  border-radius: 8px;
+  h2,
+  p {
+    color: var(--main-color);
+    display: flex;
+    font-family: 'Anton', 'serif';
+  }
+}

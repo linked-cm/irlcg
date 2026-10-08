@@ -1,0 +1,161 @@
+.BonusActionInput {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+
+  .bonusPoints {
+    max-width: 70px;
+    label {
+      font-family: var(--ld-app-body-text-family);
+    }
+    .bonusInput {
+      display: flex;
+      border: 1px solid var(--secondary-color);
+      background-color: var(--page-color);
+      border-radius: 5px;
+      margin: 2px 0;
+      padding: 0 5px;
+      height: 36px;
+    }
+  }
+}
+
+.addYourOwnPeaceAction {
+  font-weight: bold;
+  p {
+    margin-bottom: 26px;
+  }
+}
+
+.select {
+  margin-top: 1.2rem;
+  width: inherit;
+}
+
+/*selected option*/
+div[class=' css-tr4s17-option'] {
+  background-color: var(--secondary-color);
+  h3,
+  p {
+    color: var(--neutral-background);
+  }
+}
+/*not selected option*/
+div[class=' css-10wo9uf-option'] {
+  h3,
+  p {
+    color: var(--main-color);
+  }
+}
+
+.textArea {
+  padding: 15px;
+  border-radius: 15px;
+  width: 100%;
+  height: 130px;
+  box-sizing: border-box;
+  resize: none;
+
+  &:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+  }
+
+  &::placeholder {
+    font-family: Roboto;
+    font-size: 16px;
+  }
+}
+
+.actionModal {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  width: 350px;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 2px 2px 6px rgba(176, 176, 176, 0.5);
+  background-color: var(--page-color);
+  color: var(--main-color);
+
+  h3 {
+    text-align: center;
+  }
+
+  label {
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  footer {
+    font-size: smaller;
+  }
+
+  .closeButton {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+  .addButton {
+    width: 100%;
+    margin-inline: auto;
+  }
+}
+
+.helperText {
+  font-size: smaller;
+  color: var(--lincd-text-field-helper-text-color);
+}
+
+div[class=' css-13cymwt-control'],
+div[class=' css-t3ipsp-control'],
+div[class=' css-1hb7zxy-IndicatorsContainer'],
+div[class=' css-1fdsijx-ValueContainer'] {
+  /* height: 38px;*/
+  height: 36px;
+  overflow-y: clip;
+}
+div[class=' css-13cymwt-control'] {
+  border: 1px solid var(--secondary-color);
+  min-height: 36px;
+  margin-top: 3px;
+}
+
+div[class=' css-qbdosj-Input'] {
+  height: 36px;
+  margin-top: -10px;
+}
+
+div[class=' css-1dimb5e-singleValue'] {
+  .addYourOwnPeaceAction {
+    margin-bottom: 24px;
+  }
+  h3 {
+    padding-top: 36px;
+    font-size: 20px;
+    text-transform: capitalize;
+  }
+  span {
+    /*font-family: 'Anton';*/
+    text-transform: capitalize;
+    font-size: 17px;
+    color: var(--main-color);
+  }
+}
+
+.selectOptionListItem {
+  h3 {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 15px;
+    margin: 0 !important;
+  }
+}
+
+.note {
+  font-size: 14px;
+}
