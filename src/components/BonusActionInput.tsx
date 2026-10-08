@@ -4,7 +4,7 @@ import { Combobox } from '@_linked/primitives/components/Combobox';
 import { Dialog } from '@_linked/primitives/components/Dialog';
 import { Input } from '@_linked/primitives/components/Input';
 import { Textarea } from '@_linked/primitives/components/Textarea';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   ActionOption,
   type ActionOptionResult,
@@ -30,6 +30,7 @@ export const BonusActionInput = ({
 }: BonusActionInputProps) => {
   const { t } = useTranslate();
 
+  const triggerRef = useRef<HTMLButtonElement>(null);
   const [showModal, setShowModal] = useState(false);
   const [actionNameFilled, setActionNameFilled] = useState(false);
   const [customTemplate, setCustomTemplate] =
@@ -173,6 +174,7 @@ export const BonusActionInput = ({
         }}
       >
         <Combobox.Trigger
+          ref={triggerRef}
           aria-label={t('bonusActionInput.select', 'Select bonus action')}
           placeholder={t('bonusActionInput.select', 'Select bonus action')}
         />
@@ -214,7 +216,13 @@ export const BonusActionInput = ({
         open={showModal}
         onOpenChange={(open) => setShowModal(open)}
       >
-        <Dialog.Content className={style.actionModal}>
+        <Dialog.Content
+          className={style.actionModal}
+          onCloseAutoFocus={(event) => {
+            event.preventDefault();
+            triggerRef.current?.focus();
+          }}
+        >
           <Dialog.Title>
             {t('bonusActionInput.addYourAction', 'Add Your Peace Action')}
           </Dialog.Title>
