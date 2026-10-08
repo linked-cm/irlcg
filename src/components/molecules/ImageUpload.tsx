@@ -14,7 +14,7 @@ import {
   Photo,
 } from '@capacitor/camera';
 import { getResizedImagePath } from '@_linked/server-utils/utils/ImageResize';
-import cl from 'classnames';
+import { cl } from '@_linked/react/utils/ClassNames';
 import {
   generateUniqueFileName,
   replaceLocalhostWithSiteRoot,

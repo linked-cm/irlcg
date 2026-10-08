@@ -7,7 +7,7 @@
 import { useTranslate } from '@tolgee/react';
 import { Button } from '@_linked/primitives/components/Button';
 import { ShapeSet } from '@_linked/core/collections/ShapeSet';
-import cl from 'classnames';
+import { cl } from '@_linked/react/utils/ClassNames';
 import React, { useEffect, useState } from 'react';
 import type { ActionOptionResult } from '../shapes/ActionOption.js';
 import {

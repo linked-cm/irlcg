@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './VCard.module.css';
 import { Button } from '@_linked/primitives/components/Button';
-import cl from 'classnames';
+import { cl } from '@_linked/react/utils/ClassNames';
 import { asset } from '@_linked/core/utils/LinkedFileStorage';
 
 function Card({

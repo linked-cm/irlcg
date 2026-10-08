@@ -10,7 +10,7 @@ import {
   GOLD_MEDAL_NUMBER,
   SILVER_MEDAL_NUMBER,
 } from '../../utils/medal.js';
-import cl from 'classnames';
+import { cl } from '@_linked/react/utils/ClassNames';
 import { asset } from '@_linked/core/utils/LinkedFileStorage';
 import { QResult } from '@_linked/core/queries/SelectQuery';
 import { Team } from '../../shapes/Team.js';

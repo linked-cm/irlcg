@@ -4,7 +4,7 @@ import { UserAccountData } from '@_linked/auth/types/auth';
 import { Button } from '@_linked/primitives/components/Button';
 import { Dialog } from '@_linked/primitives/components/Dialog';
 import { QResult } from '@_linked/core/queries/SelectQuery';
-import cl from 'classnames';
+import { cl } from '@_linked/react/utils/ClassNames';
 import { asset } from '@_linked/core/utils/LinkedFileStorage';
 import React, { useCallback, useEffect, useState } from 'react';
 import type { ActionOptionResult } from '../shapes/ActionOption.js';

@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './Thumbnail.module.css';
-import cl from 'classnames';
+import { cl } from '@_linked/react/utils/ClassNames';
 import { useStyles } from '@_linked/react/utils/Hooks';
 import type { QResult } from '@_linked/core/queries/SelectQuery';
 import { asset } from '@_linked/core/utils/LinkedFileStorage';

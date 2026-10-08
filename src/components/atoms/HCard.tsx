@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import style from './HCard.module.css';
 import { Button } from '@_linked/primitives/components/Button';
-import cl from 'classnames';
+import { cl } from '@_linked/react/utils/ClassNames';
 import { ImageView } from '@_linked/schema/components/ImageView';
 import { asset } from '@_linked/core/utils/LinkedFileStorage';
 import { ImageObject } from '@_linked/schema/shapes/ImageObject';
