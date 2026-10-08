@@ -120,7 +120,7 @@ export class Action extends Thing {
    * - /actionEC2, /actionEC3, /actionEC4, /actionEC5, /actionEC6
    * - /actionED2, /actionED3, /actionED4
    * - /actionPF2
-   * - https://www.peacegame.earth/data/action1
+   * - https://example.com/data/action1
    * - action1, PW1, E2, EC3, PF2
    * @returns Action type: 'regular', 'peacewalk', 'event', 'eventC', 'district' or 'peaceFlame'
    */
@@ -130,7 +130,7 @@ export class Action extends Thing {
     if (!id) return 'regular';
 
     // extract action name from ID if needed
-    // "https://www.peacegame.earth/data/action1" → "action1"
+    // "https://example.com/data/action1" → "action1"
     // "/action1" → "action1"
     // "action1" → "action1"
     let actionName = id;

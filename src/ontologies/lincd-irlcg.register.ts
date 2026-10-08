@@ -1,5 +1,5 @@
 /**
- * Registers the PeaceGame ontology (`http://lincd.org/ont/irlcg/`).
+ * Registers the historical participation ontology (`http://lincd.org/ont/irlcg/`).
  *
  * Kept out of `lincd-irlcg.ts` because registration needs that module's whole export namespace.
  */

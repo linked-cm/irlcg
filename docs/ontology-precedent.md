@@ -24,14 +24,20 @@ and no established ontology expresses the required identity cleanly.
 | Quantities / units | QUDT or OM | Reuse when measurement Shapes are introduced. |
 | Alliance / mentorship | no stable existing reified relationship contract used by the applications | Retain minimal relationship identities; consent, lifecycle, and policy stay in application profiles. |
 
+## Historical registration
+
+`ActionSubmission`, `ActionOption`, `ActionTotal`, score configuration,
+medals, debriefs, and meetings register with the package, from
+`src/shapes/index.ts`, on `http://lincd.org/ont/irlcg/`. `Team`, `Action`,
+`ActionPlan`, and `Event` share their class names with the portable shapes,
+so the historical class replaces the portable one.
+
 ## Explicit exclusions
 
-- `ActionSubmission`, `ActionOption`, `ActionTotal`, score configuration,
-  medals, debriefs, meetings, and Peace Game progression remain owned by the
-  Peace Game migration.
 - Serve Causes, impact attribution, gratitude, verified service, tasks,
   scheduling policy, and organizer UI remain Serve-owned.
 - Providers, services, UI components, and algorithms are not ontology assets.
+  Screens in this repository are not package exports.
 
 ## Legacy namespace
 
@@ -44,5 +50,5 @@ not aliases silently treated as identical.
   portable class.
 - Use `owl:sameAs` only for individuals.
 - Use an explicit transform when predicates, cardinalities, or meanings
-  changed. `ActionSubmission` requires such a Peace Game-owned transform and
-  is deliberately absent from this package.
+  changed. `ActionSubmission` stays on the historical namespace. It registers
+  from this package and is not one of the portable classes.

@@ -3,6 +3,10 @@
  *
  * A shape registers when its module is evaluated, so this module exists to be imported for that
  * side effect alone: `import '@linked.cm/irlcg/shapes/index';`. It has no exports.
+ *
+ * The historical modules load after the portable shapes. Team, Action, ActionPlan, and Event
+ * exist in both sets, and a shape IRI is `{baseUri}shape/irlcg/{ClassName}`. The historical
+ * class is the one that stays registered.
  */
 import '../ontologies/irlcg.register.js';
 import '../ontologies/lincd-irlcg.register.js';
