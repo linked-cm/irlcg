@@ -170,10 +170,9 @@ export class EventTeam extends Team {
   ): team is EventTeam {
     //TODO: make this better, probably with a type check
     if (!team) return false;
-    if ((team as QResult<Team>).id) {
-      return (team as QResult<Team>).id.includes('event-teams');
-    } else if ((team as Team).id) {
-      return (team as Team).id.includes('event-teams');
+    const id = (team as QResult<Team>).id || (team as Team).id;
+    if (id) {
+      return id.includes('event-teams');
     }
     return false;
   }

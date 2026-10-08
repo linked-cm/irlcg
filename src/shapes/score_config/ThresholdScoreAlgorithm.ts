@@ -52,6 +52,7 @@ export class ThresholdScoreAlgorithm extends ScoreConfiguration {
       bronze: number;
     }
   ) {
+    if (!medalScore) return 0;
     //use action.
     if (totalScore >= medalScore.gold) {
       return 3;

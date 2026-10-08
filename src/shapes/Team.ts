@@ -16,6 +16,7 @@ import { irlcg } from '../ontologies/lincd-irlcg.js';
 import { linkedShape } from '../package.js';
 import { Meeting } from './Meeting.js';
 import { type EventResult, type Event } from './Event.js';
+import './Event.js';
 import { Action } from './Action.js';
 
 export type TeamResult = QResult<

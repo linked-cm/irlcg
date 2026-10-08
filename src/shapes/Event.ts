@@ -10,6 +10,7 @@ import { Event as SchemaEvent } from '@_linked/schema/shapes/Event';
 import { Server } from '@_linked/server-utils/utils/Server';
 import { QResult } from '@_linked/core/queries/SelectQuery';
 import { type Team } from './Team.js';
+import './Team.js';
 
 export type ImageObjectResult = QResult<ImageObject, { contentUrl: string }>;
 

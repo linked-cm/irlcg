@@ -1,10 +1,10 @@
 import { useTranslate } from '@tolgee/react';
-import { InputField } from '@_linked/input/components/InputField';
-import { Button } from '@_linked/mui-base/components/Button';
-import { Modal } from '@_linked/mui-base/components/Modal';
-import { asset } from '@_linked/core/utils/LinkedFileStorage';
+import { Button } from '@_linked/primitives/components/Button';
+import { Combobox } from '@_linked/primitives/components/Combobox';
+import { Dialog } from '@_linked/primitives/components/Dialog';
+import { Input } from '@_linked/primitives/components/Input';
+import { Textarea } from '@_linked/primitives/components/Textarea';
 import React, { useState } from 'react';
-import Select from 'react-select';
 import {
   ActionOption,
   type ActionOptionResult,
@@ -34,7 +34,6 @@ export const BonusActionInput = ({
   const [actionNameFilled, setActionNameFilled] = useState(false);
   const [customTemplate, setCustomTemplate] =
     useState<ActionOptionResult>(null);
-  const [selectCounter, setSelectCounter] = useState<number>(0);
 
   const setSelectedTemplate = (template: ActionOptionResult) => {
     onSelected(template);
@@ -46,11 +45,6 @@ export const BonusActionInput = ({
       onQuantityChanged(10);
     }
   };
-
-  // get bonus template
-  const bonus = actionOptions?.filter((action: ActionOptionResult, i) =>
-    Boolean(action.isBonus)
-  );
 
   // check if points value is valid
   const isValidPoints = (points: number): boolean => {
@@ -92,10 +86,6 @@ export const BonusActionInput = ({
     if (template) {
       setSelectedTemplate(template);
     }
-  };
-
-  const onToggleModal = () => {
-    setShowModal(!showModal);
   };
 
   const addPeaceAction = async () => {
@@ -143,14 +133,7 @@ export const BonusActionInput = ({
 
   arrayOfBonuses.push({
     value: 'add_your_own',
-    label: (
-      <span
-        className={style.addYourOwnPeaceAction}
-        onClick={() => setShowModal(true)}
-      >
-        {t('word.addYourOwn', 'Add your own... +')}
-      </span>
-    ),
+    label: t('word.addYourOwn', 'Add your own... +'),
   });
   // }
 
@@ -158,7 +141,7 @@ export const BonusActionInput = ({
     <div className={style.BonusActionInput}>
       <div className={style.bonusPoints}>
         <label>{t('word.bonus', 'Bonus')}</label>
-        <InputField
+        <Input
           maxLength={2}
           value={
             !isNaN(quantity) && quantity > 0
@@ -167,78 +150,80 @@ export const BonusActionInput = ({
                 : quantity.toString()
               : ''
           }
-          onChange={(e) => onQuantityChanged(e.target.value)}
+          onChange={(e) => onQuantityChanged(Number(e.target.value))}
           className={style.bonusInput}
           aria-label={t('bonusActionInput.quantity', 'Quantity')}
         />
       </div>
-      <Select
-        key={selectCounter.toString()}
-        options={bonus && arrayOfBonuses}
-        isOptionSelected={(option) => {
-          return (option as any).value === selected?.id;
-        }}
-        formatOptionLabel={(option: any, { context }) => {
-          //This is bug fix, when the user clicks on add your own we change
-          //the options, but select thinks add your own is still selected
-          //so we render the right title in this case
-          if (context === 'menu') {
-            return (
-              <div className={style.selectOptionListItem}>
-                <h3>{option.label}</h3>
-                {option.description && <p>{option.description}</p>}
-              </div>
-            );
-          } else if (context === 'value') {
-            return <span>{selected ? selected.name : option.label}</span>;
-          }
-          // if (
-          //   selected &&
-          //   selected.isCustom &&
-          //   option.value === 'add_your_own'
-          //   && option.description
-          // ) {
-          //   return <span>{selected.name}</span>;
-          // }
-          // if (
-          //   selected &&
-          //   selected.isCustom &&
-          //   option.value === 'add_your_own'
-          // ) {
-          //   return <span>{selected.name}</span>;
-          // }
-          // return <span>{option.label}</span>;
-        }}
-        defaultValue={
-          selected ? selected?.id : customTemplate ? customTemplate?.id : ''
-        }
-        defaultInputValue={
-          selected ? selected?.id : customTemplate ? customTemplate?.id : ''
-        }
+      <Combobox.Root
         className={style.select}
-        onChange={onOptionSelected}
-        aria-label={t('bonusActionInput.select', 'Select bonus action')}
-      />
-      <Modal
-        isOpen={showModal}
-        backdrop="rgba(0, 0, 0, 0.8)"
-        onClose={onToggleModal}
+        value={selected?.id ?? ''}
+        displayValue={
+          arrayOfBonuses.find((option) => option.value === selected?.id)
+            ?.label ??
+          selected?.name ??
+          ''
+        }
+        onValueChange={(value) => {
+          if (value === 'add_your_own') {
+            setShowModal(true);
+            return;
+          }
+          onOptionSelected({ value });
+        }}
       >
-        <div className={style.actionModal}>
-          <img
-            src={asset('/images/close_button.svg')}
-            className={style.closeButton}
-            onClick={() => setShowModal(false)}
-            aria-label={t('bonusActionInput.close', 'Close')}
+        <Combobox.Trigger
+          aria-label={t('bonusActionInput.select', 'Select bonus action')}
+          placeholder={t('bonusActionInput.select', 'Select bonus action')}
+        />
+        <Combobox.Content>
+          <Combobox.Input
+            placeholder={t(
+              'bonusActionInput.search',
+              'Search bonus actions'
+            )}
           />
-          <h3>
+          <Combobox.List>
+            <Combobox.Empty>
+              {t('bonusActionInput.noActions', 'No actions found')}
+            </Combobox.Empty>
+            {arrayOfBonuses.map((option) => (
+              <Combobox.Item
+                key={option.value}
+                value={option.value}
+                keywords={[option.label, option.description].filter(
+                  (part): part is string => Boolean(part)
+                )}
+              >
+                {option.value === 'add_your_own' ? (
+                  <span className={style.addYourOwnPeaceAction}>
+                    {option.label}
+                  </span>
+                ) : (
+                  <div className={style.selectOptionListItem}>
+                    <h3>{option.label}</h3>
+                    {option.description && <p>{option.description}</p>}
+                  </div>
+                )}
+              </Combobox.Item>
+            ))}
+          </Combobox.List>
+        </Combobox.Content>
+      </Combobox.Root>
+      <Dialog.Root
+        open={showModal}
+        onOpenChange={(open) => setShowModal(open)}
+      >
+        <Dialog.Content className={style.actionModal}>
+          <Dialog.Title>
             {t('bonusActionInput.addYourAction', 'Add Your Peace Action')}
-          </h3>
+          </Dialog.Title>
           <label>
             {t('bonusActionInput.actionName', 'Action Name').toUpperCase()}
           </label>
-          <InputField
+          <Input
             maxLength={30}
+            value={peaceActionValue.actionName}
             onChange={(e) => {
               setActionNameFilled(false);
               setPeaceActionValue({
@@ -246,25 +231,27 @@ export const BonusActionInput = ({
                 actionName: e.target.value,
               });
             }}
-            helperText={
-              actionNameFilled &&
-              t(
-                'bonusActionInput.actionNameRequired',
-                'Please fill in an action name!'
-              )
-            }
+            aria-invalid={actionNameFilled}
             aria-label={t('bonusActionInput.actionName', 'Action Name')}
           />
+          {actionNameFilled && (
+            <p className={style.helperText}>
+              {t(
+                'bonusActionInput.actionNameRequired',
+                'Please fill in an action name!'
+              )}
+            </p>
+          )}
           <label>
             {t(
               'bonusActionInput.shortDescription',
               'Short Description'
             ).toUpperCase()}
           </label>
-          <InputField
+          <Textarea
             maxLength={180}
             className={style.textArea}
-            multiline
+            value={peaceActionValue.description}
             onChange={(e) => {
               setPeaceActionValue({
                 ...peaceActionValue,
@@ -277,21 +264,21 @@ export const BonusActionInput = ({
             )}
           />
           <Button
-            variant="outlined"
-            fullWidth={false}
+            type="button"
+            variant="outline"
             className={style.addButton}
             onClick={addPeaceAction}
           >
             {t('bonusActionInput.addAction', 'Add')}
           </Button>
-          <p className={style.note}>
+          <Dialog.Description className={style.note}>
             {t(
               'bonusActionInput.note',
               'When creating a Peace Action make sure that it meets or exceeds the current actions in this category. Assign your new action the value of 1 Peace Action. (We will be reviewing all bonus actions and adding some to the bonus section for all players.)'
             )}
-          </p>
-        </div>
-      </Modal>
+          </Dialog.Description>
+        </Dialog.Content>
+      </Dialog.Root>
     </div>
   );
 };

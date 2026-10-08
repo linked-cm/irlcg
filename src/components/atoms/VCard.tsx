@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './VCard.module.css';
-import { Button } from '@mui/base';
+import { Button } from '@_linked/primitives/components/Button';
 import cl from 'classnames';
 import { asset } from '@_linked/core/utils/LinkedFileStorage';
 
@@ -36,7 +36,7 @@ function Card({
           <h4>{subTitle}</h4>
           <p>{description}</p>
         </div>
-        <Button className={style.CardButton}>
+        <Button type="button" variant="ghost" className={style.CardButton}>
           <img
             src={asset('/images/icons/ArrowIcon.svg')}
             alt="Card Button"

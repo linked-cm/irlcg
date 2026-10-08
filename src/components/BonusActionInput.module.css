@@ -32,22 +32,6 @@
   width: inherit;
 }
 
-/*selected option*/
-div[class=' css-tr4s17-option'] {
-  background-color: var(--secondary-color);
-  h3,
-  p {
-    color: var(--neutral-background);
-  }
-}
-/*not selected option*/
-div[class=' css-10wo9uf-option'] {
-  h3,
-  p {
-    color: var(--main-color);
-  }
-}
-
 .textArea {
   padding: 15px;
   border-radius: 15px;
@@ -107,42 +91,6 @@ div[class=' css-10wo9uf-option'] {
 .helperText {
   font-size: smaller;
   color: var(--lincd-text-field-helper-text-color);
-}
-
-div[class=' css-13cymwt-control'],
-div[class=' css-t3ipsp-control'],
-div[class=' css-1hb7zxy-IndicatorsContainer'],
-div[class=' css-1fdsijx-ValueContainer'] {
-  /* height: 38px;*/
-  height: 36px;
-  overflow-y: clip;
-}
-div[class=' css-13cymwt-control'] {
-  border: 1px solid var(--secondary-color);
-  min-height: 36px;
-  margin-top: 3px;
-}
-
-div[class=' css-qbdosj-Input'] {
-  height: 36px;
-  margin-top: -10px;
-}
-
-div[class=' css-1dimb5e-singleValue'] {
-  .addYourOwnPeaceAction {
-    margin-bottom: 24px;
-  }
-  h3 {
-    padding-top: 36px;
-    font-size: 20px;
-    text-transform: capitalize;
-  }
-  span {
-    /*font-family: 'Anton';*/
-    text-transform: capitalize;
-    font-size: 17px;
-    color: var(--main-color);
-  }
 }
 
 .selectOptionListItem {

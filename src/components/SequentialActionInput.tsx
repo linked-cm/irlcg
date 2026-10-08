@@ -5,7 +5,7 @@
  * and ensuring proper template resolution for custom templates.
  */
 import { useTranslate } from '@tolgee/react';
-import { Button } from '@_linked/mui-base/components/Button';
+import { Button } from '@_linked/primitives/components/Button';
 import { ShapeSet } from '@_linked/core/collections/ShapeSet';
 import cl from 'classnames';
 import React, { useEffect, useState } from 'react';
@@ -175,7 +175,8 @@ export const SequentialActionInput = ({
         );
       })}
       <Button
-        variant="outlined"
+        type="button"
+        variant="outline"
         onClick={submitAction}
         className={style.center}
         disabled={loading}

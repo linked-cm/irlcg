@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import style from './HCard.module.css';
-import { Button } from '@mui/base';
+import { Button } from '@_linked/primitives/components/Button';
 import cl from 'classnames';
 import { ImageView } from '@_linked/schema/components/ImageView';
 import { asset } from '@_linked/core/utils/LinkedFileStorage';
@@ -55,7 +55,7 @@ function HCard({
             <h3>{name}</h3>
             {description ? <p>{description}</p> : null}
           </div>
-          <Button className={style.HCardButton}>
+          <Button type="button" variant="ghost" className={style.HCardButton}>
             <img src={asset('/images/icons/ArrowIcon.svg')} alt="Card Button" />
             {buttonText ? <p>{buttonText}</p> : null}
           </Button>

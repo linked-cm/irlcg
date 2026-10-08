@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PlayerMedalsCard } from '../molecules/PlayerMedalsCard.js';
-import { Modal } from '@_linked/mui-base/components/Modal';
+import { Dialog } from '@_linked/primitives/components/Dialog';
 import { PlayerScoreOverview } from './PlayerScoreOverview.js';
 import style from './TeamMedalOverview.module.css';
 import { Person } from '@_linked/schema/shapes/Person';
@@ -114,19 +114,31 @@ export const TeamMedalOverview = ({
               />
             );
           })}
-        {selectedMember && (
-          <Modal
-            isOpen={selectedMember && true}
-            onClose={() => setSelectedMember(null)}
-            renderContent={
+        <Dialog.Root
+          open={!!selectedMember}
+          onOpenChange={(open) => {
+            if (!open) setSelectedMember(null);
+          }}
+        >
+          <Dialog.Content>
+            <Dialog.Title>
+              {t('teamMedalOverview.playerScore', 'Player score')}
+            </Dialog.Title>
+            <Dialog.Description>
+              {t(
+                'teamMedalOverview.playerScoreDescription',
+                'Scores for this player'
+              )}
+            </Dialog.Description>
+            {selectedMember && (
               <PlayerScoreOverview
                 of={selectedMember}
                 currentTeam={currentTeam}
                 actionTotals={actionTotalsData[selectedMember.id] || []}
               />
-            }
-          />
-        )}
+            )}
+          </Dialog.Content>
+        </Dialog.Root>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 import { useTranslate } from '@tolgee/react';
 import { useAuth } from '@_linked/auth/hooks/useAuth';
 import { UserAccountData } from '@_linked/auth/types/auth';
-import { Button } from '@_linked/mui-base/components/Button';
-import { Modal } from '@_linked/mui-base/components/Modal';
+import { Button } from '@_linked/primitives/components/Button';
+import { Dialog } from '@_linked/primitives/components/Dialog';
 import { QResult } from '@_linked/core/queries/SelectQuery';
 import cl from 'classnames';
 import { asset } from '@_linked/core/utils/LinkedFileStorage';
@@ -349,37 +349,35 @@ export const RadioActionInput = ({
       )}
       <br />
 
-      <Modal
-        isOpen={finishedGameModal}
-        onClose={() => setFinishedGameModal(false)}
-        aria-label={t(
-          'radioActionInput.finishedGameModal',
-          'Finished game modal'
-        )}
+      <Dialog.Root
+        open={finishedGameModal}
+        onOpenChange={(open) => {
+          if (!open) setFinishedGameModal(false);
+        }}
       >
-        <div className={style.modalForm}>
+        <Dialog.Content className={style.modalForm}>
           <video autoPlay loop muted playsInline>
             <source src={asset('/images/Fire_Orange.mp4')} type="video/mp4" />
             <source src={asset('/images/Fire_Orange.webm')} type="video/webm" />
           </video>
-          <h3>{t('radioActionInput.congratulations', 'Congratulations!')}</h3>
-          <p>
+          <Dialog.Title>
+            {t('radioActionInput.congratulations', 'Congratulations!')}
+          </Dialog.Title>
+          <Dialog.Description>
             {t(
               'radioActionInput.completedGame',
               'You have completed this game successfully!'
             )}
-          </p>
-        </div>
-      </Modal>
-      <Modal
-        isOpen={!!submittedPointsMessage}
-        onClose={() => setSubmittedPointsMessage('')}
-        aria-label={t(
-          'radioActionInput.submittedPointsModal',
-          'Submitted action modal'
-        )}
+          </Dialog.Description>
+        </Dialog.Content>
+      </Dialog.Root>
+      <Dialog.Root
+        open={!!submittedPointsMessage}
+        onOpenChange={(open) => {
+          if (!open) setSubmittedPointsMessage('');
+        }}
       >
-        <div className={style.modalForm}>
+        <Dialog.Content className={style.modalForm}>
           <video autoPlay loop muted playsInline>
             <source src={asset('/images/double-check.mp4')} type="video/mp4" />
             <source
@@ -387,17 +385,18 @@ export const RadioActionInput = ({
               type="video/webm"
             />
           </video>
-          <h3>
+          <Dialog.Title>
             {t(
               'radioActionInput.scoreSubmitted',
               'Actions submitted successfully!'
             )}
-          </h3>
-          <p>{submittedPointsMessage}</p>
-        </div>
-      </Modal>
+          </Dialog.Title>
+          <Dialog.Description>{submittedPointsMessage}</Dialog.Description>
+        </Dialog.Content>
+      </Dialog.Root>
       <Button
-        variant="outlined"
+        type="button"
+        variant="outline"
         onClick={submitAction}
         className={style.center}
         disabled={loading}

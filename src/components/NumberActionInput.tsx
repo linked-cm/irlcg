@@ -1,8 +1,8 @@
 import { useTranslate } from '@tolgee/react';
 import { useAuth } from '@_linked/auth/hooks/useAuth';
 import { UserAccountData, UserData } from '@_linked/auth/types/auth';
-import { Button } from '@_linked/mui-base/components/Button';
-import { Modal } from '@_linked/mui-base/components/Modal';
+import { Button } from '@_linked/primitives/components/Button';
+import { Dialog } from '@_linked/primitives/components/Dialog';
 import { QResult } from '@_linked/core/queries/SelectQuery';
 import { asset } from '@_linked/core/utils/LinkedFileStorage';
 import React, { useEffect, useState } from 'react';
@@ -460,7 +460,7 @@ export const NumberActionInput = ({
           )}
         </div>
         <div className={style.centered}>
-          <Button variant="outlined" onClick={submitAction} disabled={loading}>
+          <Button type="button" variant="outline" onClick={submitAction} disabled={loading}>
             {loading ? (
               <span>{t('word.submitting', 'Submitting...')}</span>
             ) : (
@@ -469,38 +469,36 @@ export const NumberActionInput = ({
           </Button>
         </div>
       </div>
-      <Modal
-        isOpen={finishedGameModal}
-        onClose={() => setFinishedGameModal(false)}
-        aria-label={t(
-          'numberActionInput.finishedGameModal',
-          'Finished Game Modal'
-        )}
+      <Dialog.Root
+        open={finishedGameModal}
+        onOpenChange={(open) => {
+          if (!open) setFinishedGameModal(false);
+        }}
       >
-        <div className={style.modalForm}>
+        <Dialog.Content className={style.modalForm}>
           <video autoPlay loop muted playsInline>
             <source src={asset('/images/Fire_Orange.mp4')} type="video/mp4" />
             <source src={asset('/images/Fire_Orange.webm')} type="video/webm" />
           </video>
-          <h3>{t('word.congratulations', 'Congratulations!')}</h3>
-          <p>
+          <Dialog.Title>
+            {t('word.congratulations', 'Congratulations!')}
+          </Dialog.Title>
+          <Dialog.Description>
             {t(
               'numberActionInput.successMessageGame',
               'You have completed this game successfully!'
             )}
-          </p>
-        </div>
-        <Confetti />
-      </Modal>
-      <Modal
-        isOpen={!!submittedPointsMessage}
-        onClose={() => setSubmittedPointsMessage('')}
-        aria-label={t(
-          'numberActionInput.submittedPointsModal',
-          'Submitted Points Modal'
-        )}
+          </Dialog.Description>
+          <Confetti />
+        </Dialog.Content>
+      </Dialog.Root>
+      <Dialog.Root
+        open={!!submittedPointsMessage}
+        onOpenChange={(open) => {
+          if (!open) setSubmittedPointsMessage('');
+        }}
       >
-        <div className={style.modalForm}>
+        <Dialog.Content className={style.modalForm}>
           <video autoPlay loop muted playsInline>
             <source src={asset('/images/double-check.mp4')} type="video/mp4" />
             <source
@@ -508,15 +506,15 @@ export const NumberActionInput = ({
               type="video/webm"
             />
           </video>
-          <h3>
+          <Dialog.Title>
             {t(
               'numberActionInput.successMessage',
               'Score submitted successfully!'
             )}
-          </h3>
-          <p>{submittedPointsMessage}</p>
-        </div>
-      </Modal>
+          </Dialog.Title>
+          <Dialog.Description>{submittedPointsMessage}</Dialog.Description>
+        </Dialog.Content>
+      </Dialog.Root>
     </>
   );
 };
