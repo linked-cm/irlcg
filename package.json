@@ -4,7 +4,7 @@
   "description": "Portable, standards-aligned ontology and base Shapes for in-real-life participation mechanics.",
   "license": "MIT",
   "type": "module",
-  "packageManager": "npm@11.20.0",
+  "packageManager": "npm@12.2.0",
   "linkedPackage": true,
   "main": "lib/esm/index.js",
   "module": "lib/esm/index.js",
