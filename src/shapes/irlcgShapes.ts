@@ -7,6 +7,7 @@ import * as irlcg from '../ontologies/irlcg.js';
 import { linkedShape } from '../package.js';
 
 @linkedShape({
+  name: 'Team',
   description:
     'Portable base profile for a group coordinating real-world participation. Applications add domain properties without redefining the IRLCG class.',
 })
@@ -15,6 +16,7 @@ export class Team extends SchemaOrganization {
 }
 
 @linkedShape({
+  name: 'Action',
   description:
     'Portable base profile for an action definition or activity referenced by real-world participation experiences.',
 })
@@ -23,6 +25,7 @@ export class Action extends SchemaAction {
 }
 
 @linkedShape({
+  name: 'ActionPlan',
   description:
     'Portable base profile for a participant plan or intention. Application-specific walkthrough fields belong to an application profile.',
 })
@@ -31,6 +34,7 @@ export class ActionPlan extends Shape {
 }
 
 @linkedShape({
+  name: 'Event',
   description:
     'Portable base profile for a scheduled occasion in which real-world or hybrid participation occurs.',
 })
@@ -39,6 +43,7 @@ export class Event extends SchemaEvent {
 }
 
 @linkedShape({
+  name: 'Mission',
   description:
     'Portable base profile for a goal or commitment evaluated from linked participation facts.',
 })
@@ -47,6 +52,7 @@ export class Mission extends Shape {
 }
 
 @linkedShape({
+  name: 'Opportunity',
   description:
     'Portable base profile for a public call for participation. Ranking and matching policy are not part of this Shape.',
 })
@@ -55,6 +61,7 @@ export class Opportunity extends Shape {
 }
 
 @linkedShape({
+  name: 'RSVP',
   description:
     'Portable base profile for a response or commitment to participate in an Event or Mission.',
 })
@@ -63,6 +70,7 @@ export class RSVP extends JoinAction {
 }
 
 @linkedShape({
+  name: 'CheckIn',
   description:
     'Portable raw arrival observation. It never creates credited time or impact by itself.',
 })
@@ -71,6 +79,7 @@ export class CheckIn extends SchemaAction {
 }
 
 @linkedShape({
+  name: 'CheckOut',
   description:
     'Portable raw departure observation. It never creates credited time or impact by itself.',
 })
@@ -79,6 +88,7 @@ export class CheckOut extends SchemaAction {
 }
 
 @linkedShape({
+  name: 'Invite',
   description:
     'Portable invitation fact. Recognition and downstream attribution remain application policy.',
 })
@@ -87,6 +97,7 @@ export class Invite extends SchemaAction {
 }
 
 @linkedShape({
+  name: 'Alliance',
   description:
     'Portable base profile for a consensual reified alliance between participants.',
 })
@@ -95,6 +106,7 @@ export class Alliance extends Shape {
 }
 
 @linkedShape({
+  name: 'Mentorship',
   description:
     'Portable base profile for a consensual directional mentorship relationship.',
 })
