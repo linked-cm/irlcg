@@ -53,14 +53,16 @@
     "test": "vitest run --config vitest.config.ts"
   },
   "dependencies": {
-    "@_linked/core": "^2.25.0",
-    "@_linked/schema": "^1.1.4"
+    "@_linked/core": "^2.48.0",
+    "@_linked/schema": "^1.9.2"
   },
   "devDependencies": {
-    "@_linked/cli": "1.39.0",
+    "@_linked/cli": "1.61.0",
     "@changesets/changelog-github": "^1.0.0",
     "@changesets/cli": "^3.0.0",
+    "@types/n3": "^1.26.6",
     "@types/node": "^20.12.7",
+    "n3": "^2.13.12",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "typescript": "^5.9.2",
@@ -68,5 +70,13 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "linkedOntologies": {
+    "irlcg": {
+      "namespace": "https://linked.cm/ont/irlcg/",
+      "data": [
+        "irlcg.ttl"
+      ]
+    }
   }
 }

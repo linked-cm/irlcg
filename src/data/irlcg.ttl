@@ -1,0 +1,105 @@
+# IRLCG portable participation ontology — Turtle (core >= 2.37 reads ontology data as Turtle only).
+# Converted from src/data/irlcg.json without changing a statement.
+
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix irlcg: <https://linked.cm/ont/irlcg/> .
+@prefix oldirlcg: <http://lincd.org/ont/irlcg/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+irlcg: a owl:Ontology ;
+    dc:title "IRLCG portable participation ontology" ;
+    dcterms:description "Portable real-world participation mechanics shared by Linked applications. Application scoring, policy, user interfaces, and domain-specific records are intentionally excluded." ;
+    owl:versionInfo "0.1.0" .
+
+irlcg:Team a owl:Class ;
+    rdfs:label "Team" ;
+    rdfs:comment "A group of people coordinating real-world participation." ;
+    rdfs:subClassOf schema:Organization ;
+    rdfs:isDefinedBy irlcg: .
+
+irlcg:Action a owl:Class ;
+    rdfs:label "Participation action" ;
+    rdfs:comment "An action definition or activity that can be referenced by a real-world participation experience." ;
+    rdfs:subClassOf schema:Action ;
+    rdfs:isDefinedBy irlcg: .
+
+irlcg:ActionPlan a owl:Class ;
+    rdfs:label "Action plan" ;
+    rdfs:comment "A participant's plan or intention to carry out a participation action." ;
+    rdfs:subClassOf schema:PlanAction ;
+    rdfs:isDefinedBy irlcg: .
+
+irlcg:Event a owl:Class ;
+    rdfs:label "Participation event" ;
+    rdfs:comment "A scheduled real-world or hybrid occasion in which participation occurs." ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:isDefinedBy irlcg: .
+
+irlcg:Mission a owl:Class ;
+    rdfs:label "Mission" ;
+    rdfs:comment "A reusable goal or commitment whose completion criteria are evaluated from linked participation facts." ;
+    rdfs:isDefinedBy irlcg: .
+
+irlcg:Opportunity a owl:Class ;
+    rdfs:label "Participation opportunity" ;
+    rdfs:comment "A public call for people to participate, optionally before a specific event exists." ;
+    rdfs:isDefinedBy irlcg: .
+
+irlcg:RSVP a owl:Class ;
+    rdfs:label "Participation commitment" ;
+    rdfs:comment "A person's response or commitment to participate in an event or mission." ;
+    rdfs:subClassOf schema:JoinAction ;
+    rdfs:isDefinedBy irlcg: .
+
+irlcg:CheckIn a owl:Class ;
+    rdfs:label "Check in" ;
+    rdfs:comment "A raw observation that a person arrived for participation; it does not by itself credit time or impact." ;
+    rdfs:subClassOf schema:CheckInAction ;
+    rdfs:isDefinedBy irlcg: .
+
+irlcg:CheckOut a owl:Class ;
+    rdfs:label "Check out" ;
+    rdfs:comment "A raw observation that a person departed from participation; it does not by itself credit time or impact." ;
+    rdfs:subClassOf schema:CheckOutAction ;
+    rdfs:isDefinedBy irlcg: .
+
+irlcg:Invite a owl:Class ;
+    rdfs:label "Participation invitation" ;
+    rdfs:comment "An invitation to participate. Recognition or attribution derived from it is governed elsewhere." ;
+    rdfs:subClassOf schema:InviteAction ;
+    rdfs:isDefinedBy irlcg: .
+
+irlcg:Alliance a owl:Class ;
+    rdfs:label "Alliance" ;
+    rdfs:comment "A consensual reified relationship between people participating as allies." ;
+    rdfs:isDefinedBy irlcg: .
+
+irlcg:Mentorship a owl:Class ;
+    rdfs:label "Mentorship" ;
+    rdfs:comment "A consensual directional relationship in which one participant mentors another." ;
+    rdfs:isDefinedBy irlcg: .
+
+oldirlcg:Team a owl:Class ;
+    rdfs:comment "Historical Peace Game application profile. Migrate instance types to irlcg:Team; no bidirectional equivalence is asserted." ;
+    rdfs:subClassOf irlcg:Team ;
+    owl:deprecated true .
+
+oldirlcg:Action a owl:Class ;
+    rdfs:comment "Historical Peace Game action profile. Migrate only after validating its action-option and scoring semantics." ;
+    rdfs:subClassOf irlcg:Action ;
+    owl:deprecated true .
+
+oldirlcg:ActionPlan a owl:Class ;
+    rdfs:comment "Historical Peace Game guided-plan profile." ;
+    rdfs:subClassOf irlcg:ActionPlan ;
+    owl:deprecated true .
+
+oldirlcg:Event a owl:Class ;
+    rdfs:comment "Historical Peace Game event profile. Peace Game-specific logo, score, and mode fields remain in its application package." ;
+    rdfs:subClassOf irlcg:Event ;
+    owl:deprecated true .
