@@ -29,7 +29,7 @@ export class Action extends SchemaAction {
   description:
     'Portable base profile for a participant plan or intention. Application-specific walkthrough fields belong to an application profile.',
 })
-export class ActionPlan extends Shape {
+export class ActionPlan extends SchemaAction {
   static targetClass = irlcg.ActionPlan;
 }
 
